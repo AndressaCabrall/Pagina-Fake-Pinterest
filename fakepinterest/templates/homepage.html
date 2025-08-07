@@ -23,6 +23,23 @@
     <h2>Agora vamos criar nossa pagina</h2>
 
 
+    {% block formulario %}
+
+    <form method="POST">
+       {{ form.csrf_token }}
+
+       {{ form.email.label() }}
+       {{ form.email()}}
+
+       {{ form.senha.label() }}
+       {{ form.senha()}}
+
+       {{ form.botao_confirmacao.label() }}
+       {{ form.botao_confirmacao()}}
+
+      </form>
+      {% endblock %}
+
 
 </body>
 

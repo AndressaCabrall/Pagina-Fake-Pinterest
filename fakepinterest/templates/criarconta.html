@@ -1,0 +1,32 @@
+{% extends "homepage.html" %}
+
+{% block titulo %}
+
+Criar Conta  - Fakepinterest
+
+{% endblock %}
+
+{% block formulario %}
+
+<form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.email.label() }}
+    {{ form.email()}}
+
+    {{ form.username.label() }}
+    {{ form.username()}}
+
+    {{ form.senha.label() }}
+    {{ form.senha()}}
+
+    {{ form.confirmar_senha.label() }}
+    {{ form.confirmar_senha()}}
+
+    {{ form.botao_confirmacao.label() }}
+    {{ form.botao_confirmacao()}}
+
+   </form>
+
+
+{% endblock %}

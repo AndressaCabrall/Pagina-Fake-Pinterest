@@ -1,3 +1,5 @@
+#Importações
+
 from fakepinterest import app
 
                                                    

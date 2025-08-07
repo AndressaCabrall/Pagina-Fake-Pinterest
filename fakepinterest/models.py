@@ -1,22 +1,26 @@
 # Cria a estrutura da base de dados do nosso site
 
+# Importações
+
 from fakepinterest import database, login_manager
 from datetime import datetime
 from flask_login import UserMixin
 
 
 @login_manager.user_loader
+
 def load_usuario(id_usuario):
     return Usuario.query.get(int(id_usuario))
 
 
+# Criando as Classes do Modelo de banco de dados que nosso site vai ter
 
 class Usuario(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
     username = database.Column(database.String, nullable=False)
     email = database.Column(database.String, nullable=False, unique=True)
     senha = database.Column(database.String, nullable=False)
-    fotos = database.relationship("Foto", backref="usuario", lazy=True)
+    fotos = database.relationship("Fotos", backref="usuario", lazy=True)
 
 
 class Fotos(database.Model):
