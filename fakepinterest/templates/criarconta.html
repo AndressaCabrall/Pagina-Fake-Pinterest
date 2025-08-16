@@ -11,11 +11,12 @@ Criar Conta  - Fakepinterest
 <form method="POST">
     {{ form.csrf_token }}
 
-    {{ form.email.label() }}
-    {{ form.email()}}
-
+    
     {{ form.username.label() }}
     {{ form.username()}}
+
+    {{ form.email.label() }}
+    {{ form.email()}}
 
     {{ form.senha.label() }}
     {{ form.senha()}}
@@ -28,5 +29,6 @@ Criar Conta  - Fakepinterest
 
    </form>
 
-
+   <a href="{{ url_for('homepage')}}">Já tem uma uma conta? Faça seu Login</a>
 {% endblock %}
+

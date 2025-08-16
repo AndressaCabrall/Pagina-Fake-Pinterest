@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>
         
         {% block titulo %}
@@ -13,12 +14,14 @@
 
         
     </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css')}}">
+
 </head>
 
 {% block body %}
 <body>
   
-    <h1>Pagina Fake do pinterest</h1>
+    <h1>Home Page do pinterest</h1>
 
     <h2>Agora vamos criar nossa pagina</h2>
 
@@ -38,10 +41,21 @@
        {{ form.botao_confirmacao()}}
 
       </form>
+
+      <a href="{{ url_for('criarconta')}}">Ainda não tem uma conta? Click aqui para criar</a>
+
       {% endblock %}
 
-
+     
 </body>
 
+
+
+
 {% endblock %}
+
 </html>
+
+
+
+
