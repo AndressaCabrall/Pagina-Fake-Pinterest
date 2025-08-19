@@ -13,40 +13,76 @@ Perfil : {{ usuario }}
  
 {% include "navbar.html" %}
     
-    <h1> Perfil do usuario: {{ usuario.username }}</h1>
+   {% if form %}
 
-{% if form %}
+<div class="container">
+     
 
-<form method="POST" enctype="multipart/form-data">
+    <form class="bloco-add-img" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        
+        <h2>{{ usuario.username }} - Enviar foto </h2>
 
-{{ form.csrf_token }}
+     
+        <div class="bloco-arquivo">
 
-{{ form.Foto }}
+          <label for="foto" class="botao-arquivo">
+            Escolher Arquivo
+            {{ form.Foto(class_="input-arquivo", id="foto") }}
 
-{{ form.botao_confirmacao}}
+            </label>
 
-</form>
+          <span id="imagem-arquivo" class=""></span>
 
-{% endif %}
+          
+        </div>
 
+        
+        {{ form.botao_confirmacao(class="botao-login")}}
+    </form>
 
-  
-
+    </div>
 
    
-    
+    {% else %}
+
+<div class="bloco-add-img">
+
+    <h2>{{ usuario.username }} - Ver perfil </h2>
+</div>
+
+    {% endif %}
+
+    <div class="conteudo">
+
     {% for foto in usuario.fotos %}
 
-    <img src="{{ url_for('static', filename= 'fotos_post/{}'.format(foto.imagem))}}" alt="">
-
-
+        <div class="bloco-imagem">
+        <img src="{{ url_for('static', filename= 'fotos_post/{}'.format(foto.imagem))}}" />
+        </div>
+      
     {% endfor %}
-    
 
+    </div>
 
+    <script>
 
-
+        let input =document.getElementById("foto");
+        let imagemArquivo =document.getElementById("imagem-arquivo");
+        
+        input.addEventListener("change", () => {
+        
+          let inputImagem = document.querySelector("input[type=file]").files[0];
+        
+        imagemArquivo.classList.add("visivel");
+        imagemArquivo.innerText = inputImagem.name;
+        
+        });
+        
+        </script>   
+  
 </body>
+
 
 {% endblock %}
 
@@ -54,11 +90,9 @@ Perfil : {{ usuario }}
 
 
 
+    
 
-
-
-
-
+      
 
 
 
