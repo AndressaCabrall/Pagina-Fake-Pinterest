@@ -72,8 +72,8 @@ img {
 
 .container {
   display: flex;
-  flex-direction: column;
-  row-gap: 20px;
+  flex-direction: row;
+  row-gap: 25px;
 }
 
 .container-popup {
@@ -192,10 +192,11 @@ img {
 
 .bloco-add-img {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  row-gap: 10px;
-  color:#474444
+  gap: 15px;
+  color:#474444;
+  padding: 10px 10px
 }
 
 .botao-arquivo {

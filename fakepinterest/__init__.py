@@ -18,7 +18,7 @@ app.config["UPLOAD_FOLDER"] = "static/fotos_post"
 database = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-login_manager.login_view = "homepage"
+login_manager.login_view = "login"
 
 
 

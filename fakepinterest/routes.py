@@ -10,11 +10,13 @@ import os
 from werkzeug.utils import secure_filename
 
 
+ 
+
 # Rota da Pagina principal/Login
 
 @app.route("/", methods=["GET", "POST"])
 
-def homepage():
+def login():
 
     formlogin = FormLogin()
 
@@ -26,7 +28,7 @@ def homepage():
             
             return redirect(url_for("perfil", id_usuario=usuario.id))
 
-    return render_template("homepage.html", form=formlogin)
+    return render_template("login.html", form=formlogin)
 
 # Rota da Pagina de Criar conta
 
@@ -93,7 +95,7 @@ def logout():
 
     logout_user()
 
-    return redirect(url_for("homepage"))
+    return redirect(url_for("login"))
 
 # Rota da Pagina do Feed
 
