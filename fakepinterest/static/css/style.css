@@ -238,3 +238,17 @@ img {
   display: flex;
   column-gap: 20px;
 }
+
+.botao-excluir {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botao-excluir:hover {
+  background-color: #777;
+  text-decoration: none;
+}

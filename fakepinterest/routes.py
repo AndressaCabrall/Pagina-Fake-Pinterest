@@ -109,3 +109,29 @@ def feed():
 
    return render_template("feed.html", fotos=fotos)
 
+#Rota para exclusão de foto
+
+@app.route("/excluirfoto/<int:id_foto>", methods=["POST"])
+@login_required
+
+def excluirfoto(id_foto):
+
+    foto = Fotos.query.get_or_404(id_foto)
+
+    if foto.id_usuario == current_user.id:
+
+        
+        caminho_completo =os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], foto.imagem)
+        if os.path.exists(caminho_completo):
+            os.remove(caminho_completo)
+
+        database.session.delete(foto)
+        database.session.commit()
+
+        return redirect (url_for("perfil", id_usuario=current_user.id))
+        
+        
+
+
+
+
